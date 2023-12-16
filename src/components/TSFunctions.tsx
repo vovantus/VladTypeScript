@@ -1,4 +1,4 @@
-function UnionTypeProblem() {
+function TSFunctions() {
   function processValue(arg: number | string | string[]): number | string {
     let result: number | string = "";
     switch (typeof arg) {
@@ -18,7 +18,11 @@ function UnionTypeProblem() {
     return result;
   }
 
+  console.log(processValue("hello")); // Output: olleh
+  console.log(processValue(5)); // Output: 25
+  console.log(processValue(["apple", "orange", "banana"]));
+
   return <></>;
 }
 
-export { UnionTypeProblem };
+export { TSFunctions };

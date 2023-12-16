@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { TodoList } from "./components/Todo";
-import { UnionTypeProblem } from "./components/UnionTypeProblem";
+import { TSFunctions } from "./components/TSFunctions";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <div className="wrapper">
           <TodoList />
-          <UnionTypeProblem />
+          <TSFunctions />
         </div>
       </header>
     </div>
