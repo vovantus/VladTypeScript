@@ -22,6 +22,25 @@ function TSFunctions() {
   console.log(processValue(5)); // Output: 25
   console.log(processValue(["apple", "orange", "banana"]));
 
+  function findMax<T>(arg: T[]): T | undefined {
+    if (arg.length > 0) {
+      let result: T = arg[0];
+      for (const el of arg) {
+        if (el > result) {
+          result = el;
+        }
+      }
+      return result;
+    } else {
+      return undefined;
+    }
+  }
+
+  console.log(findMax([3, 8, 1, 6])); // Output: 8
+  console.log(findMax(["apple", "orange", "banana"])); // Output: orange
+  console.log(findMax([true, false, true])); // Output: true
+  console.log(findMax([])); // Output: undefined
+
   return <></>;
 }
 
