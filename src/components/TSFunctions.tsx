@@ -41,7 +41,14 @@ function TSFunctions() {
   console.log(findMax([true, false, true])); // Output: true
   console.log(findMax([])); // Output: undefined
 
-  return <></>;
+  const getValueByIndex = (list: string[], key: string) => {
+    return list[parseInt(key)];
+  };
+
+  console.log(getValueByIndex(["apple", "orange", "banana"], "2"));
+  console.log(getValueByIndex(["apple", "orange", "banana"], "3"));
+
+  return <p>Thats all folks!</p>;
 }
 
 export { TSFunctions };
