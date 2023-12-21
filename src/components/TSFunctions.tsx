@@ -1,5 +1,7 @@
 function TSFunctions() {
-  function processValue(arg: number | string | string[]): number | string {
+
+
+  const processValue = (arg: number | string | string[]): number | string => {
     let result: number | string = "";
     switch (typeof arg) {
       case "string":
@@ -10,19 +12,19 @@ function TSFunctions() {
         break;
       default:
         if (Array.isArray(arg)) {
-          const allStringsArray = arg.map((el) => el.toString());
-          result = allStringsArray.join("");
+          const stringArr = arg as string[];
+          result = stringArr.join("");
         }
     }
 
     return result;
-  }
+  };
 
   console.log(processValue("hello")); // Output: olleh
   console.log(processValue(5)); // Output: 25
   console.log(processValue(["apple", "orange", "banana"]));
 
-  function findMax<T>(arg: T[]): T | undefined {
+  const findMax = <T extends unknown>(arg: T[]): T | undefined => {
     if (arg.length > 0) {
       let result: T = arg[0];
       for (const el of arg) {
@@ -34,20 +36,33 @@ function TSFunctions() {
     } else {
       return undefined;
     }
-  }
+  };
 
   console.log(findMax([3, 8, 1, 6])); // Output: 8
   console.log(findMax(["apple", "orange", "banana"])); // Output: orange
   console.log(findMax([true, false, true])); // Output: true
   console.log(findMax([])); // Output: undefined
 
-  const getValueByIndex = (list: string[], key: string) => {
-    return list[parseInt(key)];
-  };
+  interface User {
+    name: string;
+    age: number;
+  }
 
-  console.log(getValueByIndex(["apple", "orange", "banana"], "2"));
-  console.log(getValueByIndex(["apple", "orange", "banana"], "3"));
+  const users: User[] = [
+    { name: "Ivan", age: 18 },
+    { name: "Petr", age: 12 },
+    { name: "Sidor", age: 25 },
+  ];
 
+  const getValueByIndex = <T extends unknown>(
+    user: T,
+    key: keyof T
+  ): T[keyof T] => user[key];
+
+  console.log(getValueByIndex(users[2], "name"));
+  console.log(getValueByIndex(users[1], "age"));
+
+  
   return <p>Thats all folks!</p>;
 }
 
